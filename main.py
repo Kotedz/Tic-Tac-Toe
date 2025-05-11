@@ -21,6 +21,8 @@ class Game(QWidget): # Tic-Tac-Toe
         for row in self.buttons:
             for button in row:
                 button.setFixedSize(100, 100)
+
+                button.clicked.connect(lambda _, x=self.buttons.index(row), y=row.index(button): self.player_move(x, y))
                 self.grid.addWidget(button, self.buttons.index(row), row.index(button))
 
         self.setLayout(self.grid)
