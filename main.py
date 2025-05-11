@@ -25,6 +25,12 @@ class Game(QWidget): # Tic-Tac-Toe
 
         self.setLayout(self.grid)
 
+    def player_move(self, x: int, y: int):
+        if self.field[x][y] is not None:
+            pass
+        else:
+            self.field[x][y] = "X"
+            self.buttons[x][y].setText("X")
 
 
 if __name__ == '__main__':
