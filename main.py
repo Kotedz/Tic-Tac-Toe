@@ -1,12 +1,11 @@
 import sys, random
-from types import new_class
-
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QGridLayout, QMessageBox
 
-class TTT(QWidget): # Tic-Tac-Toe
+class Game(QWidget): # Tic-Tac-Toe
 
     def __init__(self):
-        super().__init__() # init of parent
+        super().__init__() # parent's init
+        self.grid = None
         self.init_ui()
 
     def init_ui(self):
@@ -17,6 +16,9 @@ class TTT(QWidget): # Tic-Tac-Toe
 
 
 
-
 if __name__ == '__main__':
-    pass
+    app = QApplication(sys.argv)
+    game = Game()
+    game.show()
+    sys.exit(app.exec())
+
