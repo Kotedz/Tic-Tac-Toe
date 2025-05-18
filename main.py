@@ -34,6 +34,29 @@ class Game(QWidget): # Tic-Tac-Toe
             self.field[x][y] = "X"
             self.buttons[x][y].setText("X")
 
+    def ai_move(self):
+        best_score = -float("inf")
+        best_move = None
+
+        for row in self.field:
+            for button in row:
+                if button is None:
+                    button = "0"
+                    score = self.minimax(False)
+                    button = None
+                    if score > best_score:
+                        best_move = (self.field.index(row), row.index(button))
+        if best_move:
+            x, y = best_move
+            self.field[x][y] = "0"
+            self.buttons[x][y].setText("0")
+
+
+
+    def minimax(self, Bool: bool) -> float:
+        pass
+
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
