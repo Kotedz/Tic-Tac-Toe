@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="363ce4cd-5ea3-4908-b9df-1c1218e9c7c6" name="Changes" comment="18:55" />
+    <list default="true" id="363ce4cd-5ea3-4908-b9df-1c1218e9c7c6" name="Changes" comment="19:10">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747569286882</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="19:10">
+      <option name="closed" value="true" />
+      <created>1747570229764</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747570229764</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -210,7 +221,8 @@
     <MESSAGE value="19:08" />
     <MESSAGE value="player_move added" />
     <MESSAGE value="18:55" />
-    <option name="LAST_COMMIT_MESSAGE" value="18:55" />
+    <MESSAGE value="19:10" />
+    <option name="LAST_COMMIT_MESSAGE" value="19:10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
