@@ -1,10 +1,8 @@
-import sys, random
+import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QGridLayout, QMessageBox
 
-from time import sleep
 
 class Game(QWidget): # Tic-Tac-Toe
-
     def __init__(self):
         super().__init__() # parent's init
         self.board = None
@@ -14,7 +12,7 @@ class Game(QWidget): # Tic-Tac-Toe
 
     def init_ui(self):
         self.setWindowTitle("Кресты и Нули")
-        self.setGeometry(100,100,300,300) # pos and size of window
+        self.setGeometry(500,100,300,300) # pos and size of window
         self.grid = QGridLayout()
         self.buttons = [[QPushButton("") for _ in range(3)] for _ in range(3)]
         self.board = [[None for _ in range(3)] for _ in range(3)]
@@ -40,53 +38,51 @@ class Game(QWidget): # Tic-Tac-Toe
         best_score = -float("inf")
         best_move = None
 
-        for row in self.board:
-            for button in row:
-                if button is None:
-                    button = "0"
+        for row in range(3):
+            for button in range(3):
+                if self.board[row][button] is None:
+                    self.board[row][button] = "O"
                     score = self.minimax(False)
-                    button = None
+                    self.board[row][button] = None
                     if score > best_score:
-                        best_move = (self.board.index(row), row.index(button))
+                        best_score = score
+                        best_move = (row, button)
+
         if best_move:
             x, y = best_move
-            self.board[x][y] = "0"
-            self.buttons[x][y].setText("0")
+            self.board[x][y] = "O"
+            self.buttons[x][y].setText("O")
 
 
 
     def minimax(self, move: bool) -> float:
         if self.check_winner("X"):
             return -1
-        elif self.check_winner("0"):
+        elif self.check_winner("O"):
             return 1
         elif self.board_is_full():
             return 0
 
         if move:
             best_score = -float("inf")
-            for row in self.board:
-                for button in row:
-                    if button is None:
-                        self.board[row][button] = "0"
+            for row in range(3):
+                for button in range(3):
+                    if self.board[row][button] is None:
+                        self.board[row][button] = "O"
                         score = self.minimax(False)
                         self.board[row][button] = None
                         best_score = max(score, best_score)
             return best_score
         else:
             best_score = float("inf")
-            for row in self.board:
-                for button in row:
-                    if button is None:
+            for row in range(3):
+                for button in range(3):
+                    if self.board[row][button] is None:
                         self.board[row][button] = "X"
                         score = self.minimax(True)
                         self.board[row][button] = None
                         best_score = min(score, best_score)
             return best_score
-
-
-    def board_is_full(self) -> bool:
-        return all(all(cell is not None for cell in row) for row in self.board)
 
     def check_winner(self, sign: str):
         for row in self.board:
@@ -100,7 +96,8 @@ class Game(QWidget): # Tic-Tac-Toe
 
         return False
 
-
+    def board_is_full(self) -> bool:
+        return all(all(cell is not None for cell in row) for row in self.board)
 
 
 if __name__ == '__main__':
