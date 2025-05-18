@@ -53,8 +53,17 @@ class Game(QWidget): # Tic-Tac-Toe
 
 
 
-    def minimax(self, Bool: bool) -> float:
+    def minimax(self, move: bool) -> float:
+        if self.check_winner("X"):
+            return -1
+        elif self.check_winner("0"):
+            return 1
+        else:
+            return 0
+
+    def check_winner(self, sign: str):
         pass
+
 
 
 
